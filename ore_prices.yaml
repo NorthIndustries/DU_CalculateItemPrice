@@ -1,0 +1,48 @@
+# Dirt
+DesertSandRocks: 0
+
+# T1
+IronOre: 25
+SiliconOre: 25
+CarbonOre: 25
+AluminiumOre: 25
+HydrogenPure: 0
+OxygenPure: 0
+
+# T2
+CopperOre: 75
+SodiumOre: 75
+CalciumOre: 75
+ChromiumOre: 75
+
+# T3
+LithiumOre: 150
+NickelOre: 150
+SilverOre: 150
+SulfurOre: 150
+
+# T4
+CobaltOre: 300
+FluorineOre: 300
+GoldOre: 300
+ScandiumOre: 300
+
+# T5
+ManganeseOre: 650
+NiobiumOre: 650
+ThoramineOre: 650
+TitaniumOre: 650
+VanadiumOre: 650
+TitaniumOre: 650
+
+# Plasma
+Plasma1: 1500
+Plasma2: 1500
+Plasma3: 1500
+Plasma4: 1500
+Plasma5: 1500
+Plasma6: 1500
+Plasma7: 1500
+Plasma8: 1500
+Plasma9: 1500
+Plasma10: 1500

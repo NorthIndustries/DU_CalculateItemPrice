@@ -1,0 +1,41 @@
+# Cache files
+item_cache.yaml
+*.cache
+
+# Output files
+output.txt
+output_new.txt
+output_final.txt
+output_fixed.txt
+
+# Market data files
+77_updated.csv
+*_updated.csv
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
