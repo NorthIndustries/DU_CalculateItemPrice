@@ -77,15 +77,22 @@ This will:
 
 ### Market Data Generation
 
+**Single Planet:**
 ```bash
 python update_market_prices.py
+```
+
+**Multi-Planet Economy:**
+```bash
+python update_multi_market_prices.py
 ```
 
 This will:
 
 - Load calculated prices from cache
-- Generate realistic market data
-- Create `77_updated.csv` with buy/sell orders
+- Generate realistic market data for all planets
+- Create regional price variations for interplanetary trade
+- Output files to `market_orders_output/` directory
 
 ### Configuration
 
@@ -153,8 +160,17 @@ WarpBeacon                  21957124.62
 
 1. **Configure Ore Prices**: Update `ore_prices.yaml` with your server's current ore prices
 2. **Run Calculations**: Execute `python calculate_prices.py`
-3. **Generate Market Data**: Run `python update_market_prices.py`
-4. **Import to Game**: Use the generated CSV files to set up market orders
+3. **Generate Market Data**: 
+   - Single planet: `python update_market_prices.py`
+   - Multi-planet: `python update_multi_market_prices.py`
+4. **Import to Game**: Copy files from `market_orders_output/` to your server
+
+### Multi-Planet Economy Features
+
+- **Regional Price Variations**: Each planet has slightly different prices (15-25% variation)
+- **Trade Opportunities**: Players can buy on one planet and sell on another for profit
+- **Realistic Scarcity**: High-end items are rarer on certain planets
+- **Balanced Profits**: Trade profits are limited to 5-15% to prevent exploitation
 
 ### Market Data Format
 
