@@ -21,6 +21,7 @@ This tool calculates the economic value of every craftable item in Dual Universe
 - **Cache System**: Fast subsequent runs with intelligent caching
 - **Circular Dependency Detection**: Prevents infinite loops in complex recipes
 - **Time-Based Pricing**: Accounts for production time in final costs
+- **Blueprint Pricing**: Calculates total cost of items used in ship blueprints
 
 ## Installation
 
@@ -78,11 +79,13 @@ This will:
 ### Market Data Generation
 
 **Single Planet:**
+
 ```bash
 python update_market_prices.py
 ```
 
 **Multi-Planet Economy:**
+
 ```bash
 python update_multi_market_prices.py
 ```
@@ -160,7 +163,7 @@ WarpBeacon                  21957124.62
 
 1. **Configure Ore Prices**: Update `ore_prices.yaml` with your server's current ore prices
 2. **Run Calculations**: Execute `python calculate_prices.py`
-3. **Generate Market Data**: 
+3. **Generate Market Data**:
    - Single planet: `python update_market_prices.py`
    - Multi-planet: `python update_multi_market_prices.py`
 4. **Import to Game**: Copy files from `market_orders_output/` to your server
@@ -171,6 +174,30 @@ WarpBeacon                  21957124.62
 - **Trade Opportunities**: Players can buy on one planet and sell on another for profit
 - **Realistic Scarcity**: High-end items are rarer on certain planets
 - **Balanced Profits**: Trade profits are limited to 5-15% to prevent exploitation
+
+### Blueprint Price Calculator
+
+**Calculate Ship Costs:**
+
+```bash
+python blueprint_price_calculator.py
+```
+
+This will:
+
+- Analyze all blueprints in the `blueprints/` directory
+- Calculate total cost of all items used in each blueprint
+- Provide detailed cost breakdown per item
+- Generate comprehensive cost reports
+
+**Features:**
+
+- **Element Type Mapping**: Automatically maps blueprint elements to item names
+- **Cost Calculation**: Uses cached prices to calculate total blueprint costs
+- **Detailed Reports**: Shows cost breakdown for each item in the blueprint
+- **Multiple Blueprint Support**: Processes multiple blueprints at once
+
+For detailed blueprint functionality, see [README_BLUEPRINT.md](README_BLUEPRINT.md).
 
 ### Market Data Format
 
