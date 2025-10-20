@@ -63,6 +63,35 @@ This tool calculates the economic value of every craftable item in Dual Universe
 
 ## Usage
 
+### Complete Workflow
+
+**1. Initial Setup:**
+
+```bash
+# Calculate all item prices
+python calculate_prices.py
+
+# Add item IDs from database (for blueprint analysis)
+python add_item_ids.py
+```
+
+**2. Market Data Generation:**
+
+```bash
+# Single planet market
+python update_market_prices.py
+
+# Multi-planet economy
+python update_multi_market_prices.py
+```
+
+**3. Blueprint Cost Analysis:**
+
+```bash
+# Calculate blueprint costs
+python blueprint_cost_calculator.py
+```
+
 ### Basic Price Calculation
 
 ```bash
@@ -110,15 +139,21 @@ DEBUG = True            # Enable debug output
 
 ```
 DU_CalculateItemPrice/
-├── calculate_prices.py      # Main price calculation script
-├── update_market_prices.py # Market data generation
-├── ore_prices.yaml         # Base ore prices (configure this)
-├── recipes.yaml           # Game recipes (provided)
-├── README.md              # This file
-├── .gitignore            # Git ignore rules
-└── examples/
-    ├── 77.csv            # Sample market data
-    └── output.txt        # Sample calculation results
+├── calculate_prices.py           # Main price calculation script
+├── update_market_prices.py      # Single planet market data generation
+├── update_multi_market_prices.py # Multi-planet market data generation
+├── blueprint_cost_calculator.py # Blueprint cost analysis
+├── add_item_ids.py              # Database integration for item IDs
+├── ore_prices.yaml              # Base ore prices (configure this)
+├── recipes.yaml                 # Game recipes (provided)
+├── item_cache.yaml              # Calculated prices cache (auto-generated)
+├── blueprints/                  # Blueprint JSON files directory
+├── blueprint_summaries/         # Blueprint cost reports (auto-generated)
+├── market_orders/               # Input market data directory
+├── market_orders_output/        # Generated market data (auto-generated)
+├── README.md                    # This file
+├── .gitignore                   # Git ignore rules
+└── requirements.txt             # Python dependencies
 ```
 
 ## How It Works
@@ -175,29 +210,42 @@ WarpBeacon                  21957124.62
 - **Realistic Scarcity**: High-end items are rarer on certain planets
 - **Balanced Profits**: Trade profits are limited to 5-15% to prevent exploitation
 
-### Blueprint Price Calculator
+### Blueprint Cost Calculator
 
 **Calculate Ship Costs:**
 
 ```bash
-python blueprint_price_calculator.py
+python blueprint_cost_calculator.py
 ```
 
 This will:
 
 - Analyze all blueprints in the `blueprints/` directory
-- Calculate total cost of all items used in each blueprint
+- Calculate total cost of all items used in each blueprint (both elements and voxel materials)
 - Provide detailed cost breakdown per item
-- Generate comprehensive cost reports
+- Generate individual summary files for each blueprint in `blueprint_summaries/`
 
 **Features:**
 
-- **Element Type Mapping**: Automatically maps blueprint elements to item names
-- **Cost Calculation**: Uses cached prices to calculate total blueprint costs
-- **Detailed Reports**: Shows cost breakdown for each item in the blueprint
-- **Multiple Blueprint Support**: Processes multiple blueprints at once
+- **Element Cost Calculation**: Uses cached prices to calculate costs for all blueprint elements
+- **Voxel Material Analysis**: Extracts and calculates costs for voxel materials used in construction
+- **Database Integration**: Uses item IDs from the game database for accurate mapping
+- **Quantity Correction**: Properly handles voxel material quantities (applies 2^24 scaling factor)
+- **Detailed Reports**: Creates comprehensive summary files for each blueprint
+- **Multiple Blueprint Support**: Processes all blueprints in the directory at once
 
-For detailed blueprint functionality, see [README_BLUEPRINT.md](README_BLUEPRINT.md).
+**Prerequisites for Blueprint Analysis:**
+
+1. **Database Setup**: Run `python add_item_ids.py` to populate `item_cache.yaml` with item IDs from the Dual Universe database
+2. **Blueprint Files**: Place your blueprint JSON files in the `blueprints/` directory
+3. **Price Cache**: Ensure `item_cache.yaml` contains calculated prices (run `calculate_prices.py` first)
+
+**Output:**
+
+- Individual summary files in `blueprint_summaries/` directory
+- Total cost breakdown including elements and voxel materials
+- Detailed item-by-item cost analysis
+- Overall project summary with all blueprint costs
 
 ### Market Data Format
 

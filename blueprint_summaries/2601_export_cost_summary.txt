@@ -1,0 +1,87 @@
+BLUEPRINT COST SUMMARY: Space Monster Muncher
+============================================================
+
+Blueprint: Space Monster Muncher
+Size: 256
+File: 2601_export
+
+TOTAL COST: 17,886,974.00
+Element Cost: 15,869,261.00
+Voxel Material Cost: 2,017,713.00
+
+Elements: 65
+Voxel Materials: 6
+
+DETAILED BREAKDOWN:
+------------------------------------------------------------
+SpaceEngineXtraLargeFreight    x  20.000 @ 365157.06 = 7303141.25 (element)
+ContainerXXXL                  x  20.000 @ 114269.06 = 2285381.25 (element)
+ContainerXXL                   x  20.000 @ 76804.88 = 1536097.50 (element)
+hcEmissiveIcyBlue              x 288.000 @  4934.50 = 1421136.00 (voxel_material)
+SpaceEngineLargeManeuver       x  22.000 @ 62293.06 = 1370447.38 (element)
+RetroEngineLarge               x 280.000 @  3151.88 =  882525.00 (element)
+CoreUnitDynamic256             x   1.000 @ 650277.31 =  650277.31 (element)
+AdjusterLarge                  x 146.000 @  3100.00 =  452600.00 (element)
+ShieldGeneratorLarge           x   1.000 @ 233370.12 =  233370.12 (element)
+WarpDrive                      x   1.000 @ 230998.88 =  230998.88 (element)
+RadialSpaceFuelLarge           x  12.000 @ 18537.75 =  222453.00 (element)
+SteelBrightHCBlue              x 192.000 @  1080.12 =  207384.00 (voxel_material)
+WindowVeryLarge                x   7.000 @ 18020.38 =  126142.62 (element)
+SteelBrightHCBlack             x  96.000 @  1080.12 =  103692.00 (voxel_material)
+SteelBrightHCGrayD             x  96.000 @  1080.12 =  103692.00 (voxel_material)
+CarbonfiberTileHCBlack         x  96.000 @  1073.09 =  103017.00 (voxel_material)
+SpaceEngineMediumManeuver      x   8.000 @ 11420.44 =   91363.50 (element)
+PlasticTileHCBlack             x  96.000 @   820.75 =   78792.00 (voxel_material)
+ContainerHub                   x   4.000 @ 18558.81 =   74235.25 (element)
+RadarPVPSpaceLarge             x   1.000 @ 63031.81 =   63031.81 (element)
+RadarPVPLarge                  x   1.000 @ 62941.81 =   62941.81 (element)
+ScreenBruteL                   x   6.000 @  4202.38 =   25214.25 (element)
+ElevatorXSmall                 x   6.000 @  4007.50 =   24045.00 (element)
+LandingGearMedium              x   4.000 @  5966.62 =   23866.50 (element)
+WindowLarge                    x  13.000 @  1632.44 =   21221.69 (element)
+ShipDoor01                     x   5.000 @  3151.88 =   15759.38 (element)
+SurrogatePodStation            x   1.000 @ 14211.31 =   14211.31 (element)
+Door_interior_01               x   4.000 @  3151.88 =   12607.50 (element)
+DetectionZone2m                x   7.000 @  1367.81 =    9574.69 (element)
+ForceField1x1                  x   6.000 @  1457.12 =    8742.75 (element)
+ProgrammingBoard               x  12.000 @   697.06 =    8364.75 (element)
+OrOperator                     x   6.000 @  1361.81 =    8170.88 (element)
+Counter02                      x   6.000 @  1361.81 =    8170.88 (element)
+SlidingDoor                    x   9.000 @   886.88 =    7981.88 (element)
+ScreenBruteM                   x   2.000 @  3826.38 =    7652.75 (element)
+ScreenBruteTransparentS        x   2.000 @  3826.38 =    7652.75 (element)
+ScreenBruteS                   x   2.000 @  3826.38 =    7652.75 (element)
+ScreenTransparent1x            x   2.000 @  3826.38 =    7652.75 (element)
+ScreenSignHXSmall              x   2.000 @  3826.38 =    7652.75 (element)
+ForceField2x1                  x   4.000 @  1457.12 =    5828.50 (element)
+ProjectorHologramSpaceshipLarge x   1.000 @  4960.19 =    4960.19 (element)
+ManualButtonSmall              x  12.000 @   361.50 =    4338.00 (element)
+Screen3x                       x   1.000 @  3826.38 =    3826.38 (element)
+dresser                        x  10.000 @   343.50 =    3435.00 (element)
+ManualSwitch                   x   9.000 @   361.50 =    3253.50 (element)
+BasicECU                       x   1.000 @  3237.94 =    3237.94 (element)
+XorOperator                    x   2.000 @  1328.38 =    2656.75 (element)
+Bed                            x   6.000 @   405.50 =    2433.00 (element)
+HatchSmall                     x   6.000 @   405.50 =    2433.00 (element)
+NightStand                     x   7.000 @   317.56 =    2222.94 (element)
+Table                          x   1.000 @  1899.56 =    1899.56 (element)
+Chair                          x   7.000 @   247.75 =    1734.25 (element)
+WindowMedium                   x   2.000 @   829.19 =    1658.38 (element)
+SurrogateVRStation             x   2.000 @   809.06 =    1618.12 (element)
+Wardrobe                       x   4.000 @   379.56 =    1518.25 (element)
+Board                          x   4.000 @   369.44 =    1477.75 (element)
+Relay                          x   3.000 @   465.38 =    1396.12 (element)
+Shower_S01                     x   3.000 @   465.38 =    1396.12 (element)
+CockpitCommandment             x   1.000 @   835.00 =     835.00 (element)
+NavigatorChair                 x   2.000 @   379.56 =     759.12 (element)
+DataBank                       x   2.000 @   363.50 =     727.00 (element)
+WC_01_S01                      x   2.000 @   317.56 =     635.12 (element)
+Trash                          x   2.000 @   317.56 =     635.12 (element)
+SacDeco05                      x   2.000 @   291.62 =     583.25 (element)
+SacDeco04                      x   2.000 @   291.62 =     583.25 (element)
+BacDeco09                      x   1.000 @   379.56 =     379.56 (element)
+Sofa                           x   1.000 @   379.56 =     379.56 (element)
+WC_02_S01                      x   1.000 @   317.56 =     317.56 (element)
+Washbasin_S01                  x   1.000 @   317.56 =     317.56 (element)
+GlassSmall                     x   1.000 @   291.62 =     291.62 (element)
+SacDeco03                      x   1.000 @   291.62 =     291.62 (element)
