@@ -25,7 +25,13 @@ def load_calculated_prices():
     try:
         with open('item_cache.yaml', 'r') as f:
             cache = yaml.safe_load(f) or {}
-            for item, price in cache.items():
+            for item, price_data in cache.items():
+                # Handle both old format (number) and new format (dict with price)
+                if isinstance(price_data, dict):
+                    price = price_data.get('price')
+                else:
+                    price = price_data
+                
                 if price is not None and price > 0:
                     prices[item] = price
         print(f"📁 Loaded {len(prices)} prices from cache")
@@ -211,7 +217,7 @@ def analyze_trade_opportunities(calculated_prices, planet_files):
     return trade_opportunities
 
 def main():
-    print("🌍 Updating multi-planet market prices...")
+    print("Updating multi-planet market prices...")
     
     # Load calculated prices
     calculated_prices = load_calculated_prices()
@@ -236,7 +242,7 @@ def main():
         print(f"❌ No CSV files found in {market_orders_dir}")
         return
     
-    print(f"📁 Found {len(planet_files)} planet market files")
+    print(f"Found {len(planet_files)} planet market files")
     
     # Process each planet
     total_updated = 0
@@ -246,7 +252,7 @@ def main():
         planet_id = os.path.splitext(os.path.basename(planet_file))[0]
         output_file = os.path.join(output_dir, os.path.basename(planet_file))
         
-        print(f"🔄 Processing planet {planet_id}...")
+        print(f"Processing planet {planet_id}...")
         
         updated_count, not_found_count = update_planet_market(
             planet_file, output_file, calculated_prices, planet_id
@@ -255,15 +261,15 @@ def main():
         total_updated += updated_count
         total_not_found += not_found_count
         
-        print(f"   ✅ Updated {updated_count} items, {not_found_count} not found")
+        print(f"   Updated {updated_count} items, {not_found_count} not found")
     
-    print(f"\n📊 Summary:")
-    print(f"   ✅ Total updated: {total_updated} items")
-    print(f"   ⚠️  Total not found: {total_not_found} items")
-    print(f"   📁 Output saved to: {output_dir}/")
+    print(f"\n Summary:")
+    print(f"    Total updated: {total_updated} items")
+    print(f"    Total not found: {total_not_found} items")
+    print(f"    Output saved to: {output_dir}/")
     
     # Analyze trade opportunities
-    print(f"\n💰 Trade Opportunities:")
+    print(f"\nTrade Opportunities:")
     opportunities = analyze_trade_opportunities(calculated_prices, planet_files)
     
     if opportunities:
@@ -275,7 +281,7 @@ def main():
     else:
         print("   No significant trade opportunities found")
     
-    print(f"\n🎯 Ready to copy files from {output_dir}/ to your server!")
+    print(f"\nReady to copy files from {output_dir}/ to your server!")
 
 if __name__ == "__main__":
     main()

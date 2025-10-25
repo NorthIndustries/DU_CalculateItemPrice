@@ -17,7 +17,13 @@ def load_calculated_prices():
         with open('item_cache.yaml', 'r') as f:
             cache = yaml.safe_load(f) or {}
             # Filter out None values and base materials
-            for item, price in cache.items():
+            for item, price_data in cache.items():
+                # Handle both old format (number) and new format (dict with price)
+                if isinstance(price_data, dict):
+                    price = price_data.get('price')
+                else:
+                    price = price_data
+                
                 if price is not None and price > 0:
                     prices[item] = price
         print(f"Loaded {len(prices)} prices from cache")

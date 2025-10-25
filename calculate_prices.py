@@ -19,7 +19,11 @@ def load_yaml_file(filename):
 def calculate_cost(item, ore_prices, recipes, cache, visited=None):
     # If already calculated
     if item in cache:
-        return cache[item]
+        cached_value = cache[item]
+        # Handle both old format (number) and new format (dict with price)
+        if isinstance(cached_value, dict):
+            return cached_value.get('price')
+        return cached_value
     
     # Initialize visited set for cycle detection
     if visited is None:
@@ -133,7 +137,7 @@ def save_cache_to_file(cache, filename="item_cache.yaml"):
     """Save calculated prices to a cache file"""
     with open(filename, 'w') as f:
         yaml.dump(cache, f, default_flow_style=False, sort_keys=True)
-    print(f"💾 Saved {len(cache)} items to {filename}")
+    print(f"Saved {len(cache)} items to {filename}")
 
 def load_cache_from_file(filename="item_cache.yaml"):
     """Load previously calculated prices from cache file"""
@@ -178,12 +182,12 @@ def main():
     
     # Load existing cache
     cache = load_cache_from_file()
-    print(f"📁 Loaded {len(cache)} items from cache")
+    print(f"Loaded {len(cache)} items from cache")
     
     # Load manual prices for independent items
     manual_prices = load_manual_prices()
     if manual_prices:
-        print(f"💰 Loaded {len(manual_prices)} manual prices for independent items")
+        print(f"Loaded {len(manual_prices)} manual prices for independent items")
         # Add manual prices to cache
         cache.update(manual_prices)
     
@@ -245,7 +249,7 @@ def main():
         independent_data = {item: None for item in independent_items}
         with open("independent_items.yaml", 'w') as f:
             yaml.dump(independent_data, f, default_flow_style=False, sort_keys=True)
-        print(f"\n📝 Saved {len(independent_items)} independent items to independent_items.yaml")
+        print(f"\nSaved {len(independent_items)} independent items to independent_items.yaml")
         print("   You can manually add prices for these items in that file")
 
 if __name__ == "__main__":
